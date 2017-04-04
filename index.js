@@ -17,9 +17,9 @@ app.get('/about', function(req, res) {
 app.post('/login', function(req, res) {
     console.log(req.body); // This your request data
 
-    /*
-     * Write your auth logic here
-     */
+    if (users.hasOwnProperty('login') === $.ajax[login] && users.hasOwnProperty('password') === $.ajax[password]) {
+            console.log("success login!!");
+        }
 
     res.send("This is auth route");
 });
