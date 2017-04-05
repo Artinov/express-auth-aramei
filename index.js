@@ -16,10 +16,23 @@ app.get('/about', function(req, res) {
 
 app.post('/login', function(req, res) {
     console.log(req.body); // This your request data
+    var body = req.body;
+    var valid = "";
 
-    if (users.hasOwnProperty('login') === $.ajax[login] && users.hasOwnProperty('password') === $.ajax[password]) {
-            console.log("success login!!");
+    for (var i=0; i <users.length; i++) {
+        if ((body.login === users[i].login) && (body.password === users[i].password)) {
+            valid = true;
+            break;
         }
+    }
+
+    if (valid) {
+        console.log("valid password");
+    }
+    else {
+        console.log("wrong password");
+    }
+	
 
     res.send("This is auth route");
 });
