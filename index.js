@@ -15,10 +15,9 @@ app.get('/about', function(req, res) {
 });
 
 app.post('/login', function(req, res) {
-    console.log(req.body); // This your request data
     var body = req.body;
-    var valid = "";
-
+	var valid = false;
+    
     for (var i=0; i <users.length; i++) {
         if ((body.login === users[i].login) && (body.password === users[i].password)) {
             valid = true;
@@ -26,15 +25,7 @@ app.post('/login', function(req, res) {
         }
     }
 
-    if (valid) {
-        console.log("valid password");
-    }
-    else {
-        console.log("wrong password");
-    }
-	
-
-    res.send("This is auth route");
+    res.send(valid);
 });
 
 app.listen(3000, function() {
